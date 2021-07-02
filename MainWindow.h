@@ -20,6 +20,18 @@ class MainWindow : public wxFrame
             const wxString& name = wxASCII_STR(wxFrameNameStr));
         virtual ~MainWindow();
 
+          //Declare event handlers
+
+          void OnNew(wxCommandEvent& event);
+          void OnOpen(wxCommandEvent& event);
+          void OnSave(wxCommandEvent& event);
+          void OnHelp(wxCommandEvent& event);
+          void OnExit(wxCommandEvent& event);
+
+          void OnClose(wxCloseEvent& event);
+
+          DECLARE_EVENT_TABLE();
+
     protected:
 
     private:

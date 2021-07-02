@@ -1,5 +1,5 @@
-##NotepadC++
+## NotepadC++
 
-##A simple MS Notepad Clone
+### A simple MS Notepad Clone
 
 that's it ;)

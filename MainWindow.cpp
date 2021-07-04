@@ -19,12 +19,6 @@ long style,
 const wxString& name)
 : wxFrame(parent, id, title, pos, size, style, name)
 {
-    //Creates a menubar
-    wxMenuBar *menubar = new wxMenuBar();
-
-    //Creates a menu
-    wxMenu *filemenu = new wxMenu();
-
     //Create menu entries
     filemenu->Append(wxID_NEW);
     filemenu->Append(wxID_OPEN);
@@ -56,26 +50,44 @@ const wxString& name)
 
     statusbar->SetStatusWidths(SIZE, WIDTHS);
 
+    this->textarea = new wxTextCtrl(this, wxID_ANY, _(""), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER | wxTE_MULTILINE);
+
 }
 
 MainWindow::~MainWindow()
 {
-    //dtor
+    //wxWidgets will take care of it
 }
 
 void MainWindow::OnNew(wxCommandEvent& event)
 {
-  wxMessageBox("OnNew Called");
+  //xMessageBox("OnNew Called");
+  this->textarea->Clear();
+
 }
 
 void MainWindow::OnOpen(wxCommandEvent& event)
 {
-  wxMessageBox("OnOpen Called");
+  //wxMessageBox("OnOpen Called");
+  wxFileDialog *openFile = new wxFileDialog(this, _("Open File~"), _(""), _(""), _("Text Files (*.txt)|*.txt|All Files (*)|*"), wxFD_OPEN);
+  int response = openFile->ShowModal();
+
+  if (response == wxID_OK)
+  {
+    this->textarea->LoadFile(openFile->GetPath());
+  }
 }
 
 void MainWindow::OnSave(wxCommandEvent& event)
 {
-  wxMessageBox("OnSave Called");
+  //wxMessageBox("OnSave Called");
+  wxFileDialog *saveFile = new wxFileDialog(this, _("Save File~"), _(""), _(""), _("Text Files (*.txt)|*.txt|All Files (*)|*"), wxFD_SAVE);
+
+  int response = saveFile->ShowModal();
+  if (response == wxID_OK)
+  {
+    this->textarea->SaveFile(saveFile->GetPath());
+  }
 }
 
 void MainWindow::OnExit(wxCommandEvent& event)

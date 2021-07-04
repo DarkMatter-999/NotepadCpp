@@ -15,10 +15,18 @@ class MainWindow : public wxFrame
             wxWindowID id,
             const wxString& title,
             const wxPoint& pos = wxDefaultPosition,
-            const wxSize& size = wxDefaultSize,
+            const wxSize& size = wxSize(800,600),
             long style = wxDEFAULT_FRAME_STYLE,
             const wxString& name = wxASCII_STR(wxFrameNameStr));
         virtual ~MainWindow();
+          //Creates a menubar
+          wxMenuBar *menubar = new wxMenuBar();
+
+          //Creates a menu
+          wxMenu *filemenu = new wxMenu();
+
+          //text area
+          wxTextCtrl *textarea;
 
           //Declare event handlers
 

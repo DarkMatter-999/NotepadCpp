@@ -19,6 +19,9 @@ long style,
 const wxString& name)
 : wxFrame(parent, id, title, pos, size, style, name)
 {
+    //Sets the icon
+    this->SetIcon(icon);
+    
     //Create menu entries
     filemenu->Append(wxID_NEW);
     filemenu->Append(wxID_OPEN);

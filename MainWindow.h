@@ -6,6 +6,8 @@
 #ifndef WX_PRECOMP
     #include <wx/wx.h>
 #endif
+#include "img/npicon.xpm"
+
 
 class MainWindow : public wxFrame
 {
@@ -19,6 +21,7 @@ class MainWindow : public wxFrame
             long style = wxDEFAULT_FRAME_STYLE,
             const wxString& name = wxASCII_STR(wxFrameNameStr));
         virtual ~MainWindow();
+
           //Creates a menubar
           wxMenuBar *menubar = new wxMenuBar();
 

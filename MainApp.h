@@ -7,7 +7,6 @@
 #include <wx/wx.h>
 #endif
 
-
 class MainApp : public wxApp
 {
     public:
